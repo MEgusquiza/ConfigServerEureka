@@ -1,18 +1,18 @@
-version: "3.8"
+version: '3.8'
 services:
-  config-service:
+  registry_service:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: docker-registry-service
     restart: always
     ports:
-      - 8883:8883
+      - 8761:8761
     networks:
-      app_subnet:
+      network_bank:
         aliases:
-          - app_subnet
+          - net_cloud
 networks:
-  app_subnet:
-    name: network_mongo
+  network_bank:
+    name: net_cloud
     external: true
